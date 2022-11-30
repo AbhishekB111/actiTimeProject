@@ -1,0 +1,23 @@
+package testPackage;
+
+import java.io.IOException;
+
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import generic.BaseTest;
+import generic.CustomListner;
+import generic.Flib;
+import pagePackage.LoginPage;
+@Listeners(CustomListner.class)
+public class TestActiTimeValidLogin extends BaseTest
+{
+	
+	@Test
+	public void testValidLogin() throws IOException
+	{
+		LoginPage lp = new LoginPage(driver);
+		Flib flib = new Flib();
+		lp.validActiTimeLogin(flib.readDataFromPropertyFile(PROP_PATH, USERNAME),flib.readDataFromPropertyFile(PROP_PATH, PASSWORD));
+	}
+}
